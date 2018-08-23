@@ -25,7 +25,6 @@ int main()
   upper_f = 300;
   step_f = 20;
 
-  index_f = lower_f;
   for (index_f = lower_f; index_f < upper_f; index_f += step_f) {
     printf("%3.0f\t%6.1f\n", index_f, convert_f_to_c(index_f));
   }
