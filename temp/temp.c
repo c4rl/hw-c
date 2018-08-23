@@ -3,15 +3,14 @@
 /**
  * Converts F to C.
  * 
- * @param int f
+ * @param float f
  *   Temp in F.
  *
- * @return int
+ * @return float
  *   Temp in C.
  */
-int convert_f_to_c(int f) {
-  // Integer division truncates, yo.
-  return 5 * (f - 32) / 9;
+float convert_f_to_c(float f) {
+  return 5.0 * (f - 32.0) / 9.0;
 }
 
 /**
@@ -19,7 +18,7 @@ int convert_f_to_c(int f) {
  */
 int main()
 {
-  int index_f, c;
+  float index_f, c;
   int lower_f, upper_f, step_f;
 
   lower_f = 0;
@@ -29,7 +28,7 @@ int main()
   index_f = lower_f;
   while (index_f <= upper_f) {
     c = convert_f_to_c(index_f);
-    printf("%d\t%d\n", index_f, c);
+    printf("%3.0f\t%6.1f\n", index_f, c);
     index_f += step_f;
   }
 
