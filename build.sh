@@ -1,2 +1,2 @@
 #! /bin/bash
-cc hello.c
+cc "$1"
