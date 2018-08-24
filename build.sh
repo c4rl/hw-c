@@ -1,2 +1,2 @@
 #! /bin/bash
-cc "$1"
+cc "$1/main.c"
