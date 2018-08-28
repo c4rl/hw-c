@@ -12,9 +12,26 @@ int main() {
   }
 
   while ((c = getchar()) != EOF) {
-
+    if (c > '0' && c <= '9') {
+      ++counts_digit[c - '0'];
+    }
+    else if (c == ' ' || c == '\n' || c == '\t') {
+      ++count_white;
+    }
+    else {
+      ++count_other;
+    }
   }
 
+  printf("{digits: {");
+  for (i = 0; i < 10; i++) {
+    printf("%d: %d", i, counts_digit[i]);
+    if (i < 9) {
+      printf(", ");
+    }
+  }
 
+  printf("}, whitespace: %d, other: %d}\n", count_white, count_other);
 
 }
+
