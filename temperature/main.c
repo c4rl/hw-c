@@ -7,17 +7,9 @@
 #define STEP_F 20
 
 /**
- * Converts F to C.
- * 
- * @param float f
- *   Temp in F.
- *
- * @return float
- *   Temp in C.
+ * Prototype for convert_c_to_f().
  */
-float convert_f_to_c(float f) {
-  return 5.0 * (f - 32.0) / 9.0;
-}
+float convert_f_to_c(float f);
 
 /**
  * This prints out a temperature table, yo.
@@ -31,5 +23,18 @@ int main()
     printf("%3.0f\t%6.1f\n", index_f, convert_f_to_c(index_f));
   }
 
+}
+
+/**
+ * Converts F to C.
+ *
+ * @param float f
+ *   Temp in F.
+ *
+ * @return float
+ *   Temp in C.
+ */
+float convert_f_to_c(float f) {
+  return 5.0 * (f - 32.0) / 9.0;
 }
 
