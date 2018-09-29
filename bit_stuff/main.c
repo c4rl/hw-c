@@ -6,6 +6,8 @@ unsigned setbits(unsigned x, int p, int n, unsigned y);
 
 unsigned invert(unsigned x, int p, int n);
 
+int bitcount(unsigned x);
+
 int main() {
 
   int z;
@@ -28,6 +30,9 @@ int main() {
   printf("Should be 843 (0b1101001011): %d\n", z);
   z = invert(0b1100110011, 7, 2);
   printf("Should be 1011 (0b1111110011): %d\n", z);
+
+  z = bitcount(0b1100110011);
+  printf("Bitcount should be 6 (0b1100110011): %d\n", z);
 
   return 0;
 }
@@ -81,3 +86,24 @@ unsigned invert(unsigned x, int p, int n) {
   return zeroed_x | inverted_subset_with_space | leftover_x;
 }
 
+/**
+ * In a two’s complement number system, x &= (x−1) deletes the rightmost
+ * 1-bit in x. Explain why. Use this observation to write a faster version of bitcount.
+ *
+ * x &= (x-1)
+ * =>
+ * x = x & (x - 1)
+ * x = x & (x - 0b1)
+ *
+ * Subtracting 1 always zeros-out the position of the rightmost bit, whether subtracted
+ * directly, or borrowed. In the case of borrowing, all original bits to the right of
+ * the borrowed bit are zero.
+ */
+int bitcount(unsigned x) {
+  int b;
+  while (x != 0) {
+    x &= (x - 1);
+    b++;
+  }
+  return b;
+}
